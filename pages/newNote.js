@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useState, useEffect } from 'react';
 import { Form, Button, Loader } from "semantic-ui-react";
 import { useRouter } from "next/router";
@@ -13,7 +12,7 @@ const newNote = () => {
         if(submitting){
             if(Object.keys(error).length === 0)
             {
-                alert('Success');
+                createNote();
             }
             else
             {
@@ -21,6 +20,22 @@ const newNote = () => {
             }
         }
     }, [error])
+
+    const createNote = async () => {
+        try {
+            const res = await fetch('http://localhost:3000/api/notes', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(form)
+        });
+        router.push('/');
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
@@ -76,4 +91,4 @@ const newNote = () => {
   )
 }
 
-export default newNote
+export default newNote;
