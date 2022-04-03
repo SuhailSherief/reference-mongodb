@@ -6,7 +6,7 @@ export const Navbar = () => {
             <Link href="/">
                 <a className="navbar-brand">Notes App</a>
             </Link>
-            <Link href="/new">
+            <Link href="/newNote">
                 <a className="create">Create Note</a>
             </Link>
         </nav>
