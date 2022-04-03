@@ -20,7 +20,7 @@ const index = ({ notes }) => {
                   </Card.Header>
                 </Card.Content>
                 <Card.Content extra>
-                    <Link href={`/${note._id}`}>
+                    <Link href={`/${note._id}/view`}>
                       <Button primary>View</Button>
                     </Link>
                     <Link href={`/${note._id}/edit`}>
